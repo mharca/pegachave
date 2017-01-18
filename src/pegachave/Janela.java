@@ -6,16 +6,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 public class Janela extends JFrame{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private HtmlParser parser;
 	private JTextArea jta;
 	private JTextArea jta2,jta3;
 	JScrollPane jsp2,jsp3;
-	Thread t;
 	JButton botao;
 	
 	public Janela(){
@@ -48,8 +44,9 @@ public class Janela extends JFrame{
 		
 		jsp.setEnabled(true);
 		jta.setEditable(true);
-		//jta2.setEditable(false);
-		//jta3.setEditable(false);
+		
+		jta2.setEditable(false);
+		jta3.setEditable(false);
 		jta.setEnabled(true);
 			
 		
@@ -65,7 +62,7 @@ public class Janela extends JFrame{
 		
 		this.setVisible(true);
 	}
-	
+//--------------------------------------------------------------------------------------------------------------------//
 	private class botaoAction implements ActionListener{
 					
 		@Override
@@ -76,7 +73,7 @@ public class Janela extends JFrame{
 	}
 	
 		
-		
+//-----------------------------------------------------------------------------------------------------------------//		
 	private class pegaChave extends SwingWorker<String, Object>{
 
 		@Override
