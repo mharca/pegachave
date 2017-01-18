@@ -61,7 +61,7 @@ public class HtmlParser {
 				});
 				
 				tdChave.run();
-/*				Thread tdNome = new Thread(new Runnable(){
+				Thread tdNome = new Thread(new Runnable(){
 				
 					@Override 
 					public void run(){
@@ -71,7 +71,7 @@ public class HtmlParser {
 				});
 				
 				tdNome.run();
-				
+	/*			
 				Thread tdEmail = new Thread(new Runnable() {
 					
 					@Override
