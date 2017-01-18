@@ -32,19 +32,24 @@ public class Janela extends JFrame{
 		
 		JScrollPane jsp = new JScrollPane(jta,JScrollPane.VERTICAL_SCROLLBAR_NEVER,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		//jsp.setViewportView(jta);
+		jsp.setBorder(BorderFactory.createTitledBorder("Identificador"));
 		
-		
-		jsp2 = new JScrollPane(jta2,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		jsp2 = new JScrollPane(jta2,JScrollPane.VERTICAL_SCROLLBAR_NEVER,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		jsp2.setViewportView(jta2);
+		jsp2.setBorder(BorderFactory.createTitledBorder("Chaves"));
 		
-	//	jsp3 = new JScrollPane(jta3,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-	//	jsp3.setViewportView(jta3);
 		
-		jsp.getVerticalScrollBar().setModel(jsp2.getVerticalScrollBar().getModel());
-		//jsp2.getVerticalScrollBar().setModel(jsp.getVerticalScrollBar().getModel());
+		jsp3 = new JScrollPane(jta3,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		//jsp3.setViewportView(jta3);
+		jsp3.setBorder(BorderFactory.createTitledBorder("Nome"));
+		
+		jsp.getVerticalScrollBar().setModel(jsp3.getVerticalScrollBar().getModel());
+		jsp2.getVerticalScrollBar().setModel(jsp3.getVerticalScrollBar().getModel());
 		
 		jsp.setEnabled(true);
 		jta.setEditable(true);
+		//jta2.setEditable(false);
+		//jta3.setEditable(false);
 		jta.setEnabled(true);
 			
 		
@@ -52,7 +57,7 @@ public class Janela extends JFrame{
 	
 		panel.add(jsp);
 		panel.add(jsp2);
-		//panel.add(jsp3);
+		panel.add(jsp3);
 		panel.add(botao);
 		
 
@@ -89,10 +94,12 @@ public class Janela extends JFrame{
 							
 							parser = new HtmlParser(lines[i]);
 							jta2.append(parser.getChave()+"\n");
+							jta3.append(parser.getNome()+"\n");
 							
 							//jsp2.repaint();								
 						}catch(Exception ex1){
 							jta2.append("Erro\n");
+							jta3.append("Erro\n");
 						}		
 						
 					} // for
@@ -101,6 +108,7 @@ public class Janela extends JFrame{
 				}catch(Exception ex){
 					System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=ERRRRRROOOOOO=-=-=-=-=-=-=-=-=-=-=--=-");
 					jta2.append("Erro\n");
+					jta3.append("Erro\n");
 				}
 			return null;
 		}
